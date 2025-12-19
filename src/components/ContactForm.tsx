@@ -28,7 +28,7 @@ export function ContactForm() {
                 data.append(pair[0], pair[1] as string);
             }
 
-            await fetch("/", {
+            await fetch("/kontakt", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: data.toString(),
@@ -65,11 +65,16 @@ export function ContactForm() {
             name="contact"
             method="POST"
             data-netlify="true"
+            netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             className="space-y-6"
         >
             <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
+            <p className="hidden">
+                <label>
+                    Don’t fill this out: <input name="bot-field" />
+                </label>
+            </p>
 
             <div className="grid md:grid-cols-2 gap-6">
                 <div>
