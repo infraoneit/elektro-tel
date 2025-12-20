@@ -18,23 +18,26 @@ export function ContactForm() {
         e.preventDefault();
         setStatus("submitting");
 
-        const myForm = e.currentTarget;
-        const formData = new FormData(myForm);
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+
+        const body = new URLSearchParams();
+        for (const [key, value] of formData.entries()) {
+            body.append(key, String(value));
+        }
 
         try {
-            const res = await fetch("/", {
+            const res = await fetch("/.netlify/forms", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData as any).toString(),
+                body: body.toString(),
             });
 
-            if (!res.ok) {
-                throw new Error(`Status: ${res.status}`);
-            }
+            if (!res.ok) throw new Error(`Status ${res.status}`);
 
             setStatus("success");
-        } catch (error) {
-            console.error(error);
+        } catch (err) {
+            console.error(err);
             setStatus("error");
         }
     };
