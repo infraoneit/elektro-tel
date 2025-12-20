@@ -65,16 +65,10 @@ export function ContactForm() {
             method="POST"
             action="/kontakt?success=true"
             data-netlify="true"
-            netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             className="space-y-6"
         >
             <input type="hidden" name="form-name" value="contact" />
-            <p className="hidden">
-                <label>
-                    Don’t fill this out: <input name="bot-field" />
-                </label>
-            </p>
 
             <div className="grid md:grid-cols-2 gap-6">
                 <div>
