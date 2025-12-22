@@ -1,6 +1,6 @@
 import { getAllNews } from "@/lib/cms";
 import Link from "next/link";
-import { ArrowRight, Trophy, Phone, Handshake, Newspaper } from "lucide-react";
+import { ArrowRight, Trophy, Phone, Handshake, Newspaper, ShieldCheck, Wrench, Info } from "lucide-react";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 
 /**
@@ -20,6 +20,16 @@ export async function NewsPreviewBlock({ count }: { count: number }) {
         return { icon: Newspaper, color: "text-slate-500", bg: "bg-gray-100" };
     };
 
+    const iconMap: Record<string, any> = {
+        'Newspaper': { icon: Newspaper, color: "text-slate-500", bg: "bg-gray-100" },
+        'Trophy': { icon: Trophy, color: "text-amber-500", bg: "bg-amber-50" },
+        'Phone': { icon: Phone, color: "text-brand-red", bg: "bg-red-50" },
+        'Handshake': { icon: Handshake, color: "text-blue-600", bg: "bg-blue-50" },
+        'Wrench': { icon: Wrench, color: "text-brand-red", bg: "bg-red-50" },
+        'ShieldCheck': { icon: ShieldCheck, color: "text-green-600", bg: "bg-green-50" },
+        'Info': { icon: Info, color: "text-sky-600", bg: "bg-sky-50" },
+    };
+
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4 text-left">
@@ -30,25 +40,40 @@ export async function NewsPreviewBlock({ count }: { count: number }) {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {news.map((item: any, i: number) => {
-                        const { icon: Icon, color, bg } = getIcon(item.title);
+                        // Determine visual: Explicit Image > Explicit Icon > Auto Icon
+                        let IconComponent = Newspaper;
+                        let iconStyles = { color: "text-slate-500", bg: "bg-gray-100" };
+
+                        if (item.icon && iconMap[item.icon]) {
+                            const mapEntry = iconMap[item.icon];
+                            IconComponent = mapEntry.icon;
+                            iconStyles = { color: mapEntry.color, bg: mapEntry.bg };
+                        } else {
+                            // Fallback
+                            const fallback = getIcon(item.title);
+                            IconComponent = fallback.icon;
+                            iconStyles = { color: fallback.color, bg: fallback.bg };
+                        }
+
+                        const { color, bg } = iconStyles;
                         const isInfraone = item.title.toLowerCase().includes("infraone");
 
                         return (
                             <Link key={i} href={`/news#${item.slug}`} className="group block bg-white hover:shadow-xl transition-all duration-300 rounded-sm border border-gray-100 overflow-hidden h-full flex flex-col">
                                 <div className={`aspect-video relative overflow-hidden flex items-center justify-center ${bg}`}>
-                                    {isInfraone ? (
+                                    {item.heroImage ? (
+                                        <ImageWithFallback
+                                            src={item.heroImage}
+                                            alt={item.title}
+                                            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    ) : isInfraone ? (
                                         <div className="w-full h-full p-8 flex items-center justify-center bg-slate-50">
                                             {/* eslint-disable-next-line @next/next/no-img-element */}
                                             <img src="/partners/infraone-logo-schwarz.svg" alt="Infraone Logo" className="max-w-full max-h-full object-contain" />
                                         </div>
-                                    ) : item.heroImage ? (
-                                        <ImageWithFallback
-                                            src={item.heroImage}
-                                            alt={item.title}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                        />
                                     ) : (
-                                        <Icon size={64} className={`${color} group-hover:scale-110 transition-transform duration-500`} />
+                                        <IconComponent size={64} className={`${color} group-hover:scale-110 transition-transform duration-500`} />
                                     )}
                                 </div>
                                 <div className="p-6 flex flex-col flex-grow">

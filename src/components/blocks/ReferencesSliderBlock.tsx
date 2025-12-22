@@ -8,7 +8,7 @@ import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
  * Used on the homepage to showcase recent work.
  */
 export async function ReferencesSliderBlock({ title }: { title: string }) {
-    const refs = getAllReferences(); // Take first 6
+    const refs = getAllReferences().slice(0, 6); // Take first 6
 
     return (
         <section className="py-10 md:py-20 bg-slate-900 text-white overflow-hidden">
@@ -27,9 +27,9 @@ export async function ReferencesSliderBlock({ title }: { title: string }) {
                     <Link key={i} href={`/referenzen#${item.slug}`} className="flex-shrink-0 w-[300px] md:w-[400px] snap-center group">
                         <div className="aspect-[4/3] bg-gray-800 mb-4 relative overflow-hidden rounded-sm">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            {(item.heroImage || (item.gallery && item.gallery[0])) && (
+                            {(item.image || item.heroImage || (item.gallery && item.gallery[0])) && (
                                 <ImageWithFallback
-                                    src={item.heroImage || item.gallery[0]}
+                                    src={item.image || item.heroImage || item.gallery?.[0]}
                                     alt={item.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
                                 />

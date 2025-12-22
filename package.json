@@ -14,9 +14,11 @@
     "test:visual": "playwright test --project=chromium"
   },
   "dependencies": {
+    "@keystatic/core": "^0.5.48",
+    "@keystatic/next": "^5.0.4",
+    "@markdoc/markdoc": "^0.5.4",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "decap-cms-app": "^3.9.0",
     "framer-motion": "^12.23.26",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.561.0",

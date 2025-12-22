@@ -8,6 +8,7 @@ import { ArrowRight } from "lucide-react";
  */
 export async function JobsPreviewBlock({ title }: { title: string }) {
     const jobs = getAllJobs().slice(0, 3); // Show max 3 jobs
+    // Sort logic is now in getAllJobs() to ensure date sorting.
 
     return (
         <section className="py-10 md:py-20 bg-brand-red text-white">

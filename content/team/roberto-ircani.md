@@ -1,7 +1,7 @@
 ---
-title: "Roberto Ircani"
-role: ""
-jobTitle: "Dipl. Elektro-Installateur"
-email: "r.ircani@elektro-tel.ch"
-image: "/images/elektro-tel-ag-roberto-ircani.jpg"
+title: Roberto Ircani
+order: 3
+jobTitle: Dipl. Elektro-Installateur
+email: r.ircani@elektro-tel.ch
+image: /images/team/roberto-ircani/image.jpg
 ---

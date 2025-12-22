@@ -50,6 +50,8 @@ blocks:
   - type: "teamGrid"
     title: "Unser Management"
     subtitle: "TEAM"
+    count: 4
+
 
   - type: "newsPreview"
     count: 3

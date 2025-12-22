@@ -1,15 +1,14 @@
 ---
-title: "Neubau Arztpraxis IBSW"
-category: "Neubau / Gewerbe"
-client: "Siska Heuberger Holding AG"
-architect: "n. A."
-address: "Hotel Banana City Schaffhauserstrasse 8, Winterthur"
-year: "2024"
-services: ["Licht", "Kraft", "Audio"]
-works: "Licht- und Kraftinstallationen, LED Beleuchtung, Audio Anlage"
-heroImage: "/images/referenz-neubau-arztpraxis-ibsw.jpg"
-images: []
+title: Neubau Arztpraxis IBSW
+date: 2025-11-01
+order: 3
+category: Neubau / Gewerbe
+address: Hotel Banana City Schaffhauserstrasse 8, Winterthur
+client: Siska Heuberger Holding AG
+architect: n. A.
+works: Licht- und Kraftinstallationen, LED Beleuchtung, Audio Anlage
+image: /images/references/neubau-arztpraxis-ibsw/image.jpg
+heroImage: /images/referenz-neubau-arztpraxis-ibsw.jpg
 ---
-
 Kompletter Neubau einer Arztpraxis in Winterthur.
 Ausführung sämtlicher Elektroinstallationen inklusive Beleuchtung und Audio-Anlage.

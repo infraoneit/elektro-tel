@@ -1,7 +1,8 @@
 ---
-title: "Katarina Stojanovic"
-role: "Administration"
-jobTitle: "Kaufmännische Angestellte"
-email: "k.stojanovic@elektro-tel.ch"
-image: "/images/elektro-tel-ag-katarina-stojanovic.jpg"
+title: Katarina Stojanovic
+order: 2
+role: Administration
+jobTitle: Kaufmännische Angestellte
+email: k.stojanovic@elektro-tel.ch
+image: /images/team/katarina-stojanovic/image.jpg
 ---

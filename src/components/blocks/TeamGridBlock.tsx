@@ -6,12 +6,9 @@ import { Mail } from "lucide-react";
  * Renders a grid of team members.
  * Fetches all team data from the CMS.
  */
-export async function TeamGridBlock({ title, subtitle }: { title: string, subtitle?: string }) {
-    const team = getAllTeam();
-
-    // Sort or filter if needed. For now assume manual order or created date.
-    // We can also prioritize specific people if the user asked.
-    // User asked for: Damir, Salvatore, Roberto, Katarina.
+export async function TeamGridBlock({ title, subtitle, count }: { title: string, subtitle?: string, count?: number }) {
+    const allTeam = getAllTeam();
+    const team = count ? allTeam.slice(0, count) : allTeam;
 
     return (
         <section className="py-10 md:py-20 bg-white">

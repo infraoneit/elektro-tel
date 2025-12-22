@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer components {
+  .prose ul {
+    list-style-type: disc;
+    padding-left: 1.625em;
+    margin-bottom: 1.25em;
+  }
+
+  .prose ol {
+    list-style-type: decimal;
+    padding-left: 1.625em;
+    margin-bottom: 1.25em;
+  }
+
+  .prose li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose h1 {
+    font-size: 2.25em;
+    margin-top: 0;
+    margin-bottom: 0.8888889em;
+    line-height: 1.1111111;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .prose h2 {
+    font-size: 1.5em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.3333333;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .prose h3 {
+    font-size: 1.25em;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    line-height: 1.6;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .prose a {
+    color: var(--color-brand-red);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .prose a:hover {
+    text-decoration: underline;
+  }
+
+  .prose table {
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    font-size: 0.875em;
+  }
+
+  .prose th {
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0.5em;
+  }
+
+  .prose td {
+    padding: 0.5em;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .prose tr:last-child td {
+    border-bottom: 0;
+  }
+}
+
+@theme {
+  --color-brand-red: #D72027;
+  --color-brand-red-hover: #DF4D52;
+
+  --animate-marquee: marquee var(--duration) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
+  /* Fallback for fonts */
+  --font-sans: ui-sans-serif,
+  system-ui,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji";
+  --font-mono: ui-monospace,
+  SFMono-Regular,
+  "SF Mono",
+  Menlo,
+  Consolas,
+  "Liberation Mono",
+  monospace;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --duration: 40s;
+  --gap: 1rem;
+}
+
+
+
+html,
+body {
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Custom Utilities if needed */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
