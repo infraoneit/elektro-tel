@@ -4,7 +4,7 @@ slug: bauleitender-elektroinstallateur
 date: 2025-11-01
 location: Winterthur, Tägerwilen, Schaffhausen
 intro: Führen Sie anspruchsvolle Projekte zum Erfolg. Verantwortung und Perspektive.
-applyContact: jobs@elektro-tel.ch
+applyContact: info@elektro-tel.ch
 ---
 Wir suchen einen engagierten **Bauleitenden Elektroinstallateur**, der Projekte nicht nur abwickelt, sondern führt.
 Nehmen Sie das Zepter in die Hand und gestalten Sie den Erfolg unserer Baustellen massgeblich mit.
