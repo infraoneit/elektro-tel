@@ -1,6 +1,6 @@
 ---
 title: Salvatore Irrera
-order: 4
+order: 5
 role: Inhaber / Geschäftsleiter
 jobTitle: Automatisierungs-Integrator
 email: s.irrera@elektro-tel.ch
