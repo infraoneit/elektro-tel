@@ -1,6 +1,6 @@
 ---
 title: Katarina Stojanovic
-order: 5
+order: 6
 role: Administration
 jobTitle: Kaufmännische Angestellte
 email: k.stojanovic@elektro-tel.ch
