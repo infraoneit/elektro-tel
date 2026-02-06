@@ -66,6 +66,9 @@ export function JsonLd() {
         "subOrganization": locations.slice(1).map((loc) => ({
             "@type": "Electrician",
             "name": `${settings?.companyName || "Elektro-Tel AG"} (${loc.name})`,
+            "url": BASE_URL,
+            "telephone": settings?.phone || "0800 800 813",
+            "image": `${BASE_URL}/images/smart-home-elektroinstallation-gebaeudeautomation-elektro-tel-schweiz.webp`,
             "parentOrganization": {
                 "@type": "Organization",
                 "name": settings?.companyName || "Elektro-Tel AG"
