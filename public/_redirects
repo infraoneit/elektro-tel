@@ -4,9 +4,4 @@ http://elektro-tel.ch/* https://elektro-tel.ch/:splat 301!
 # Redirect www to non-www
 https://www.elektro-tel.ch/* https://elektro-tel.ch/:splat 301!
 
-
-
-# Keystatic Auth - Avoid Redirects for API
-/api/* /api/:splat 200
-
-# Next.js Handling handled by Netlify Plugin automatically, but pure redirects here
+# Next.js Handling handled by Netlify Plugin automatically
