@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import { buildAlternates, clampMeta } from "@/lib/seo";
 
 const BASE_URL = "https://elektro-tel.ch";
 
@@ -20,7 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const item = getReferenceItem(params.slug);
     if (!item) return {};
     return {
-        title: `${item.title} | Referenzen | Elektro-Tel`,
+        title: clampMeta(`${item.title} | Referenzen | Elektro-Tel`, 60),
+        alternates: buildAlternates(`/referenzen/${item.slug}`),
     };
 }
 

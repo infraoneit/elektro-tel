@@ -5,10 +5,12 @@ import { getAllPartners } from "@/lib/cms";
 import { marked } from "marked";
 import { ProjectCTA } from "@/components/ProjectCTA";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import { buildAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
     title: "Partner | Elektro-Tel",
-    description: "Unsere starken Partner für Qualität und Innovation.",
+    description: "Unsere Partner und Lieferanten für Qualität und Innovation.",
+    alternates: buildAlternates("/partner"),
 };
 
 export default async function PartnerPage() {

@@ -11,7 +11,7 @@ type ServiceSchemaProps = {
     areaServed?: string[];
 };
 
-export function ServiceSchema({ service, areaServed = ["Winterthur", "Tägerwilen", "Schaffhausen"] }: ServiceSchemaProps) {
+export function ServiceSchema({ service, areaServed }: ServiceSchemaProps) {
     const settings = getSiteSettings();
     const mainLocation = settings?.locations?.[0];
     const parsePostalCode = (city?: string) => {
@@ -19,13 +19,16 @@ export function ServiceSchema({ service, areaServed = ["Winterthur", "Tägerwile
         const match = city.match(/\b\d{4,5}\b/);
         return match ? match[0] : undefined;
     };
+    const fallbackAreas = ["Winterthur", "Tägerwilen", "Schaffhausen"];
+    const resolvedAreas = areaServed ?? settings?.locations?.map((loc) => loc.name) ?? fallbackAreas;
+    const uniqueAreas = Array.from(new Set(resolvedAreas));
 
     const schema = {
         "@context": "https://schema.org",
         "@type": "Service",
         name: service.title,
         description: service.description,
-        keywords: [service.title, ...areaServed].join(", "),
+        keywords: [service.title, ...uniqueAreas].join(", "),
         provider: {
             "@type": "LocalBusiness",
             name: "Elektro-Tel AG",
@@ -40,7 +43,7 @@ export function ServiceSchema({ service, areaServed = ["Winterthur", "Tägerwile
                 }
                 : undefined,
         },
-        areaServed: areaServed.map((area) => ({
+        areaServed: uniqueAreas.map((area) => ({
             "@type": "Place",
             name: area,
         })),

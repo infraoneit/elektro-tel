@@ -11,6 +11,7 @@ import { AnimatedContent, AnimatedHero, StaggerContainer, StaggerItem, AnimatedI
 import { ProjectCTA } from "@/components/ProjectCTA";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
+import { buildAlternates, clampMeta } from "@/lib/seo";
 
 const iconMap: { [key: string]: any } = {
     FileText, Zap, Wrench, Cpu, Wifi, ShieldAlert, Lightbulb, Sun, Car
@@ -30,8 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const service = getServiceById(id);
     if (!service) return {};
     return {
-        title: service.seoTitle || `${service.title} | Elektro-Tel`,
-        description: service.seoDescription || service.description,
+        title: clampMeta(service.seoTitle || `${service.title} | Elektro-Tel`, 60),
+        description: clampMeta(service.seoDescription || service.description, 155),
+        alternates: buildAlternates(`/leistungen/${service.slug}`),
     };
 }
 

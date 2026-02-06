@@ -3,6 +3,7 @@ import { SectionRenderer } from "@/components/SectionRenderer";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { buildAlternates, clampMeta } from "@/lib/seo";
 
 export async function generateStaticParams() {
     const pages = getAllPages();
@@ -19,8 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const page = getPageContent(slug);
     if (!page) return {};
     return {
-        title: page.seoTitle || page.title,
-        description: page.seoDescription,
+        title: clampMeta(page.seoTitle || page.title, 60),
+        description: clampMeta(page.seoDescription, 155),
+        alternates: buildAlternates(`/${page.slug}`),
     };
 }
 

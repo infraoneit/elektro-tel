@@ -5,10 +5,12 @@ import { AnimatedContent, AnimatedHero } from "@/components/ui/PageAnimations";
 import { getAllQuality } from "@/lib/cms";
 import { ProjectCTA } from "@/components/ProjectCTA";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import { buildAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-    title: "Qualitätsmanagement und Nachhaltigkeit | Elektro-Tel AG",
-    description: "Unsere Grundsätze zu Qualitätsmanagement, Nachhaltigkeit und umweltgerechter Abfallentsorgung auf Baustellen.",
+    title: "Qualität & Nachhaltigkeit | Elektro-Tel AG",
+    description: "Grundsätze zu Qualitätsmanagement, Nachhaltigkeit und Abfallentsorgung auf Baustellen.",
+    alternates: buildAlternates("/qualitaet"),
 };
 
 const iconMap: { [key: string]: any } = {

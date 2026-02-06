@@ -2,6 +2,7 @@ import { getJobData, getSiteSettings } from "@/lib/cms";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import { buildAlternates, clampMeta } from "@/lib/seo";
 
 const BASE_URL = "https://elektro-tel.ch";
 
@@ -14,8 +15,9 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     if (!job) return { title: "Job nicht gefunden" };
 
     return {
-        title: `${job.title} | Elektro-Tel Jobs`,
-        description: `Jobangebot bei Elektro-Tel.`,
+        title: clampMeta(`${job.title} | Elektro-Tel Jobs`, 60),
+        description: clampMeta(`Jobangebot bei Elektro-Tel in der Region.`, 155),
+        alternates: buildAlternates(`/jobs/${job.slug}`),
     };
 }
 

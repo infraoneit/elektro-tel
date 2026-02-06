@@ -4,10 +4,12 @@ import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 import { AnimatedContent } from "@/components/ui/PageAnimations";
 import { ProjectCTA } from "@/components/ProjectCTA";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import { buildAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
     title: "Referenzen | Elektro-Tel",
-    description: "Auszug aus realisierten Projekten.",
+    description: "Auszug aus realisierten Projekten und Elektroinstallationen.",
+    alternates: buildAlternates("/referenzen"),
 };
 
 export default function ReferencesPage() {

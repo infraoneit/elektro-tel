@@ -2,10 +2,12 @@ import { getAllJobs } from "@/lib/cms";
 import Link from "next/link";
 import { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import { buildAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
     title: "Jobs | Elektro-Tel",
-    description: "Karriere bei Elektro-Tel. Werden Sie Teil unseres Teams.",
+    description: "Karriere bei Elektro-Tel. Werden Sie Teil unseres Teams in der Region.",
+    alternates: buildAlternates("/jobs"),
 };
 
 export default function JobsPage() {

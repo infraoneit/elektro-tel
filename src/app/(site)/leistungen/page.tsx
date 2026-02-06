@@ -3,10 +3,12 @@ import { Metadata } from "next";
 import { ServicesPageContent } from "@/components/ServicesPageContent";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { OfferCatalogSchema } from "@/components/OfferCatalogSchema";
+import { buildAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
     title: "Leistungen | Elektro-Tel",
-    description: "Unsere Dienstleistungen. Elektrotechnik, Gebäudeautomation, IT & Telekommunikation.",
+    description: "Unsere Dienstleistungen: Elektrotechnik, Gebäudeautomation, IT und Telekommunikation.",
+    alternates: buildAlternates("/leistungen"),
 };
 
 export default function LeistungenPage() {

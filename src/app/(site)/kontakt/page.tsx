@@ -3,10 +3,12 @@ import { ContactForm } from "@/components/ContactForm";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { Metadata } from "next";
 import { getContactSettings } from "@/lib/cms";
+import { buildAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
     title: "Kontakt | Elektro-Tel",
-    description: "Schnell erreichbar in Winterthur, Tägerwilen und Schaffhausen.",
+    description: "Kontaktieren Sie Elektro-Tel in Winterthur, Tägerwilen und Schaffhausen.",
+    alternates: buildAlternates("/kontakt"),
 };
 
 // Default values (fallback if CMS data is unavailable)

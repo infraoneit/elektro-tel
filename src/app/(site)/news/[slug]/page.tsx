@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import { buildAlternates, clampMeta } from "@/lib/seo";
 
 const BASE_URL = "https://elektro-tel.ch";
 
@@ -12,8 +13,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const item = news.find((i: any) => i.slug === params.slug);
     if (!item) return {};
     return {
-        title: `${item.title} | Elektro-Tel`,
-        description: item.excerpt,
+        title: clampMeta(`${item.title} | Elektro-Tel`, 60),
+        description: clampMeta(item.excerpt, 155),
+        alternates: buildAlternates(`/news/${item.slug}`),
     };
 }
 

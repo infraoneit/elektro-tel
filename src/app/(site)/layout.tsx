@@ -5,16 +5,15 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { getNavigationSettings } from "@/lib/cms";
+import { buildAlternates } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Elektro-Tel | Ihr Partner für Elektro und Telekommunikation",
-  description: "Elektro-Tel - Ihr Experte für Elektroinstallationen und Telekommunikation in Winterthur, Tägerwilen und Schaffhausen. Professionell, zuverlässig und nah.",
+  title: "Elektro-Tel | Elektroinstallationen & Telekommunikation",
+  description: "Elektro-Tel: Elektroinstallationen und Telekommunikation in Winterthur, Tägerwilen und Schaffhausen. Professionell, zuverlässig, nah.",
   metadataBase: new URL('https://elektro-tel.ch'),
-  alternates: {
-    canonical: '/',
-  },
+  alternates: buildAlternates('/'),
   openGraph: {
     title: "Elektro-Tel | Ihr Partner für Elektro und Telekommunikation",
     description: "Ihr Experte für Elektroinstallationen und Telekommunikation in Winterthur, Tägerwilen und Schaffhausen.",

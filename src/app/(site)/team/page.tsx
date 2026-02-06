@@ -4,10 +4,12 @@ import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { ProjectCTA } from "@/components/ProjectCTA";
+import { buildAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
     title: "Team | Elektro-Tel",
-    description: "Unser Team und Management.",
+    description: "Unser Team und die Geschäftsleitung der Elektro-Tel AG.",
+    alternates: buildAlternates("/team"),
 };
 
 export default function TeamPage() {

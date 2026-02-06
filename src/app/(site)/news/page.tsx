@@ -9,10 +9,12 @@ import {
 } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "@/components/ui/PageAnimations";
 import { ProjectCTA } from "@/components/ProjectCTA";
+import { buildAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
     title: "News | Elektro-Tel",
-    description: "Aktuelles von Elektro-Tel: Modelle, Partnerschaften und Erfolge.",
+    description: "Aktuelles von Elektro-Tel: Partnerschaften, Erfolge und Informationen.",
+    alternates: buildAlternates("/news"),
 };
 
 // Helper to determine icon based on title or content keywords
