@@ -219,8 +219,8 @@ export default config({
                 title: fields.text({ label: 'Titel' }),
                 image: fields.image({
                     label: 'Bild',
-                    directory: 'public/images',
-                    publicPath: '/images/',
+                    directory: 'public/images/about',
+                    publicPath: '/images/about/',
                 }),
                 body: fields.text({ label: 'Text', multiline: true }),
             },
@@ -248,8 +248,8 @@ export default config({
                 title: fields.text({ label: 'Titel' }),
                 image: fields.image({
                     label: 'Bild',
-                    directory: 'public/images',
-                    publicPath: '/images/',
+                    directory: 'public/images/team-experience',
+                    publicPath: '/images/team-experience/',
                 }),
                 body: fields.text({ label: 'Text', multiline: true }),
             },
