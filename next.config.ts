@@ -26,6 +26,19 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/api/keystatic/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store',
+          },
+          {
+            key: 'Pragma',
+            value: 'no-cache',
+          },
+        ],
+      },
+      {
         source: '/keystatic/(.*)',
         headers: [
           {
