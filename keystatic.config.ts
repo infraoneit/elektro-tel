@@ -4,7 +4,7 @@ import { config, fields, collection, singleton } from '@keystatic/core';
 // --- CONFIGURATION ---
 // Set to true for local development (Local File System)
 // Set to false for production (GitHub Integration)
-const FORCE_LOCAL_MODE = false;
+const FORCE_LOCAL_MODE = true;
 
 export default config({
     storage: FORCE_LOCAL_MODE
